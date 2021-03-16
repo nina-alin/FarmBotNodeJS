@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../css/stylereglage.css" rel="stylesheet" />
+
+  <head>
+    <title>Réglages</title>
+    <button
+      type="button"
+      id="btn-close"
+      class="btn-close btn-close-white"
+      aria-label="Close"
+      onclick="fermer()"
+    ></button>
+  </head>
+  <body>
+    <br />
+    <br />
+    <div class="container p-3 my-3 border">
+      <form class="frequence_scan">
+        <legend>Fréquence de scan</legend>
+        <div class="frequence_scan">
+          <label for="frequence_scan">Fréquence de scan en heures : </label>
+          <input type="number" required />
+          <script>
+            function loadfreq() {
+              console.log("j'arrive jusque l'uupdate");
+              axios
+                .post("https://localhost:8080/reglages/update/4", {
+                  frequence_scan: "11",
+                })
+                .then((res) => {
+                  console.log(`statusCode: ${res.statusCode}`);
+                  console.log(res);
+                })
+                .catch((error) => {
+                  console.error(error);
+                });
+            }
+          </script>
+        </div>
+        <div class="frequence_scan">
+          <br />
+          <input type="submit" value="Enregistrer" onclick="loadfreq()" />
+        </div>
+      </form>
+    </div>
+    <br />
+
+    <div class="container p-3 my-3 border">
+      <form class="graines">
+        <legend>Graines</legend>
+        <div class="graines">
+          <label for="g1">Conteneur de graines n°1 : </label>
+          <select name="g1" id="g1">
+            <!--récupérer liste des graines-->
+          </select>
+        </div>
+        <div class="graines">
+          <label for="g2">Conteneur de graines n°2 : </label>
+          <select name="g2" id="g2">
+            <!--récupérer liste des graines-->
+          </select>
+        </div>
+        <div class="graines">
+          <label for="g3">Conteneur de graines n°3 : </label>
+          <select name="g3" id="g3">
+            <!--récupérer liste des graines-->
+          </select>
+        </div>
+        <div class="graines">
+          <br />
+          <input type="submit" value="Enregistrer" />
+        </div>
+      </form>
+    </div>
+    <br />
+
+    <div class="container p-3 my-3 border">
+      <form class="position_reference">
+        <legend>Position de références des outils</legend>
+        <div class="position_reference">
+          <label for="x">X : </label>
+          <input type="number" name="x" id="x" required />
+
+          <label for="y">Y : </label>
+          <input type="number" name="y" id="y" required />
+
+          <label for="z">Z : </label>
+          <input type="number" name="z" id="z" required />
+        </div>
+        <div class="position_reference">
+          <br />
+          <input type="submit" value="Enregistrer" />
+        </div>
+      </form>
+    </div>
+  </body>
+
+  <script>
+    function fermer() {
+      window.close();
+    }
+    const axios = require("axios");
+  </script>
+</html>

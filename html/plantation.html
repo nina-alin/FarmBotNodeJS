@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../css/styleplantation.css" rel="stylesheet" />
+
+  <head>
+    <title>BOUHHHHH</title>
+    <button
+      type="button"
+      id="btn-close"
+      class="btn-close btn-close-white"
+      aria-label="Close"
+      onclick="fermer()"
+    ></button>
+  </head>
+  <body>
+    <div class="modal2">
+      <ul id="#plantsList" class="list-group">
+        <!-- Liste de plants chargée dynamiquement -->
+      </ul>
+    </div>
+
+    <div class="boutonpopfree">
+      <button
+        id="boutonpop"
+        style="width: 200px; height: 50px"
+        class="btn btn-success"
+        onclick="fermer()"
+      >
+        Plante moi !
+      </button>
+    </div>
+  </body>
+
+  <script>
+    require("../js/childrenderer.js");
+    function fermer() {
+      window.close();
+    }
+    
+  </script>
+</html>
