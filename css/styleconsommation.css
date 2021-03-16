@@ -11,7 +11,7 @@ body{
     left : 1150px;
 }
 
-.modal1
+#eau
    {
     background-image: url('../images/goute.png');
        width: 40%;
@@ -22,9 +22,9 @@ body{
        left: 5%;
    }
 
-.modal2
+#electricite
    {
-        background-image: url('../images/electricite.jpg');
+    background-image: url('../images/electricite.jpg');
        width: 40%;
        height: 80%;
        border: 5px solid black;
@@ -32,3 +32,35 @@ body{
        top : 10%;
        left: 55%;
    }
+
+#centre 
+{
+    width:50%;
+    height:0;
+    font-size:20px;
+    text-align:center;
+    line-height:0;
+    padding:25% 0;
+    border-radius:50%;
+    background-color: white;
+    border-color: darkslategray;
+    position: absolute;
+    top: 35%;  
+    left: 25%;
+    color: white;
+    text-shadow: 2px 0 0 red, -2px 0 0 red, 0 2px 0 red, 0 -2px 0 red, 1px 1px red, -1px -1px 0 red, 1px -1px 0 red, -1px 1px 0 red;
+}
+
+h5 {
+    top: 20%;
+    left: 15%;
+    position: absolute;
+    font-size : 480%;
+}
+
+p {
+    top: 80%;
+    left: 40%;
+    position: absolute;
+    font-size: small;
+}
