@@ -8,8 +8,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
 
-    <title>Farming Simulator</title>
-  </head>
+  </script>
   <body>    
 
     <!-- A faire 
@@ -19,15 +18,31 @@
     -->
 
     <!-- ***************************** MENU *******************************************-->
+    <svg id="hamburger" class="ham hamRotate ham8" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+      <path
+            class="line top"
+            d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20" />
+      <path
+            class="line middle"
+            d="m 30,50 h 40" />
 
-    <div class="menu">
-      <div class=boutonmenu>
-        <button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark">Champ</button>,<button id="menureglage" style="width: 100%; height: 50px" type="button" class="btn btn-dark menureglage">Réglages</button>,<button id="menuconsommation" style="width: 100%; height: 50px" type="button" class="btn btn-dark menuconsommation">Consommation</button>,<button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark">Simulation</button>,<button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark">?</button>,<button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark"></button>
-        
-        
-       
-      </div>
+      <path
+            class="line bottom"
+            d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20" />
+    </svg>
+
+  <div class="menu">
+    <div class="boutonmenu">
+      <button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark">Champ</button>,
+      <button id="menureglage" style="width: 100%; height: 50px" type="button" class="btn btn-dark menureglage">Réglages</button>,
+      <button id="menuconsommation" style="width: 100%; height: 50px" type="button" class="btn btn-dark menuconsommation">Consommation</button>,
+      <button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark">Simulation</button>,
+      <button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark">?</button>,
+      <button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark"></button>
     </div>
+  </div>
+</nav>
+
 
     <!-- *************************** BOUTONS ******************************************-->
 
