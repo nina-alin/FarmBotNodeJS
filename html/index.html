@@ -8,7 +8,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/style.css" rel="stylesheet">
 
-  </script>
+  </head>
   <body>    
 
     <!-- A faire 
@@ -18,6 +18,7 @@
     -->
 
     <!-- ***************************** MENU *******************************************-->
+    
     <svg id="hamburger" class="ham hamRotate ham8" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
       <path
             class="line top"
@@ -30,7 +31,7 @@
             class="line bottom"
             d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20" />
     </svg>
-
+    
   <div class="menu">
     <div class="boutonmenu">
       <button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark">Champ</button>,
@@ -38,8 +39,30 @@
       <button id="menuconsommation" style="width: 100%; height: 50px" type="button" class="btn btn-dark menuconsommation">Consommation</button>,
       <button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark">Simulation</button>,
       <button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark">?</button>,
-      <button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark"></button>
+      <div class="container" onclick="this.classList.toggle('active')">
+        <div class="fill fill1">
+          <div class="circle circle1"></div>
+        </div>
+        <div class="drop">
+          <div class="fill fill2">
+            <div class="circle circle2"></div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="cachecache">
+    <img src="../images/jeanRostand.jpg" id="lycee" alt="lycee" class="image">
+
+    <div class="generique">
+      <p>Gabriel Toursel<br />Nina Alin<br />Alexis Coupas<br />Thibault Douchin</p>
+      <p>Nous remercions nos professeurs</p>
+      <p>Mr Serge Cuypers<br />Mr Christian Robe<br />Mr Lucas Harsze<br />Mr Laurent Neel</p>
+    </div>
+
+    <img src="../images/farmbot.png" id="farmbot" alt="farmbot" class="image">
+
   </div>
 </nav>
 

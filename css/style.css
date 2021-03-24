@@ -264,3 +264,200 @@ body {
 .ham8.active ~ .menu {
   margin-left: 0%;
 }
+
+.ham8 {
+  display: inline-block;
+  vertical-align: top;
+  flex-direction: column;
+}
+
+.cachecache {
+  margin-left: 2%;
+  flex-direction: column;
+  padding: 1%;
+}
+
+#lycee {
+  width: 10%;
+  height: 10%;
+  padding-bottom: 2%;
+}
+
+#farmbot {
+  width: 10%;
+  height: 10%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.generique {
+  background-color: #ffffff;
+  border-radius: 10px 10px 10px 10px;
+  border: 2px solid #003300;
+  width: 10%;
+  height: 10%;
+  font-size: small;
+}
+
+.container {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #000;
+  border-radius: 25px;
+  box-shadow: 0 2px 20px 10px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  transform: scale(0.7);
+  transition: transform 50ms;
+  width: 100px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+}
+.container:active {
+  transform: scale(0.73);
+}
+.fill {
+  background-color: #000;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.fill1 {
+  background-color: #fff;
+  clip-path: circle(19px at 73px 25px);
+}
+.fill2 {
+  animation: right2 500ms both;
+  background-color: #000;
+  clip-path: circle(19px at 25px 25px);
+}
+.circle {
+  background: #fff;
+  border-radius: 20px;
+  height: 38px;
+  position: relative;
+  top: 6px;
+  width: 38px;
+}
+.circle1 {
+  background-color: #000;
+  left: 6px;
+}
+.circle2 {
+  animation: right4 500ms both;
+  background-color: #fff;
+  left: 54px;
+}
+.drop {
+  animation: right2d 500ms both;
+  background-color: #fff;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.active .fill1 {
+  animation: left1 500ms both;
+}
+.active .fill2 {
+  animation: left2 500ms both;
+}
+.active .circle1 {
+  animation: left3 500ms both;
+}
+.active .circle2 {
+  animation: left4 500ms both;
+}
+.active .drop {
+  animation: leftd 500ms both;
+}
+@keyframes left1 {
+  0% {
+    clip-path: circle(19px at 73px 25px);
+  }
+  99% {
+    clip-path: circle(74px at 73px 25px);
+  }
+  100% {
+    clip-path: circle(74px at 73px 25px);
+  }
+}
+@keyframes left2 {
+  0% {
+    clip-path: circle(74px at 25px 25px);
+  }
+  99% {
+    clip-path: circle(19px at 25px 25px);
+  }
+  100% {
+    clip-path: circle(19px at 25px 25px);
+  }
+}
+@keyframes left3 {
+  0% {
+    left: 14px;
+  }
+  99% {
+    left: 6px;
+  }
+  100% {
+    left: 6px;
+  }
+}
+@keyframes left4 {
+  0% {
+    left: 54px;
+  }
+  99% {
+    left: 46px;
+  }
+  100% {
+    left: 46px;
+  }
+}
+@keyframes leftd {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes right2 {
+  0% {
+    clip-path: circle(19px at 25px 25px);
+  }
+  99% {
+    clip-path: circle(74px at 25px 25px);
+  }
+  100% {
+    clip-path: circle(74px at 25px 25px);
+  }
+}
+@keyframes right2d {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes right4 {
+  0% {
+    left: 46px;
+  }
+  99% {
+    left: 54px;
+  }
+  100% {
+    left: 54px;
+  }
+}
