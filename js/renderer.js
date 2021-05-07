@@ -1,6 +1,12 @@
 const ipc = require("electron").ipcRenderer;
 const fetch = require("node-fetch");
-const { app, BrowserWindow, ipcMain, ipcRenderer } = require("electron");
+const {
+  app,
+  BrowserWindow,
+  ipcMain,
+  ipcRenderer,
+  remote,
+} = require("electron");
 const path = require("path");
 
 // This file is required by the index.html file and will
@@ -10,24 +16,44 @@ const path = require("path");
 // selectively enable features needed in the rendering
 // process.
 
-//------------------ etat plantation ----------------------------------------------------------
+ipc.on("champLoaded", (event, data) => {
+  console.log("Json received ", data);
 
-document.querySelectorAll(".btnPlantation").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    console.log("Button clicked");
-    ipc.send("etatplantation", btn.id);
+  //function listplant(){
+  var container = document.getElementById("casePlantation");
+
+  container.innerHTML = ""; // Vider la liste
+
+  data.forEach((element) => {
+    //on va créer ca :
+    /*
+    <div class="b3">
+      <button
+        id="23"
+        style="width: 150px; height: 150px"
+        class="btnPlantation btn btn-outline-light"
+      ></button>
+    </div>;
+*/
+    var div = document.createElement("div");
+    div.className = `case${element.y}_${element.x}`;
+    if (element.plante != null && element.plante.nom) {
+      div.classList.add(element.plante.nom);
+    }
+
+    var btn = document.createElement("button");
+    btn.id = `${element.x}${element.y}`;
+    btn.style = "width: 150px; height: 150px";
+    btn.className = "btnPlantation btn btn-outline-light";
+
+    btn.addEventListener("click", () => {
+      ipc.send("etatplantation", btn.id);
+    });
+
+    div.appendChild(btn);
+
+    container.appendChild(div);
   });
-});
-
-ipc.on("etatplantation", function (event, data) {
-  console.log("Data received", data.libre);
-  etat = data.libre;
-  if (etat != "1") {
-    ipc.send("popupplantationlock");
-  }
-  if (etat == "1") {
-    ipc.send("popupplantation");
-  }
 });
 
 //---------------------------- menu -------------------------------------------------------------------------
@@ -46,4 +72,29 @@ document.querySelectorAll(".menuconsommation").forEach((btn) => {
   });
 });
 
+document.querySelectorAll(".menumeteo").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    console.log("Button meteo clicked");
+    ipc.send("menumeteo");
+  });
+});
+
+document.getElementById("light").addEventListener("click", () => {
+  ipc.send("lightToggle");
+});
+
+document.getElementById("lightOff").addEventListener("click", () => {
+  ipc.send("lightToggleOff");
+});
+
 //---------------------------- plantation -------------------------------------------------------------------------
+
+// ---------------------------- notification --------------------------------------------------
+
+const myNotification = new Notification('Arrosage', {
+  body: 'Un arrosage est en cours !'
+})
+
+myNotification.onclick = () => {
+  console.log('Notification clicked')
+}

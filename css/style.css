@@ -1,20 +1,20 @@
 body {
   background-color: #4c8c4a;
   background-image: url("../images/fondchamp1.jpg");
+  overflow: hidden;
 }
 
 .menu {
-  background-color: #003300;
-  border-radius: 10px 10px 10px 10px;
-  background-image: url("../images/fondmenu.png");
-  border: 5px solid #003300;
-  position: fixed;
+  background-color: #212529;
   width: 15%;
   height: 100%;
-  margin-left: -280px;
-  overflow: auto;
-  transition: .25s;
+  position: absolute;
+  border-radius: 10px 10px 10px 10px;
+  border: 5px solid #343534;
+  margin-left: -300px;
+  transition: 0.25s;
   z-index: 10;
+  overflow: hidden;
 }
 
 .champs {
@@ -28,113 +28,132 @@ body {
   color: red;
 }
 
-.a1 {
+.case1_1 {
   position: absolute;
   z-index: 1;
   left: 20%;
   top: 10%;
 }
-.a2 {
+.case1_2 {
   position: absolute;
   z-index: 1;
   left: 32%;
   top: 10%;
 }
-.a3 {
+.case1_3 {
   position: absolute;
   z-index: 1;
   left: 44%;
   top: 10%;
 }
-.a4 {
+.case1_4 {
   position: absolute;
   z-index: 1;
   left: 56%;
   top: 10%;
 }
-.a5 {
+.case1_5 {
   position: absolute;
   z-index: 1;
   left: 68%;
   top: 10%;
 }
-.a6 {
+.case1_6 {
   position: absolute;
   z-index: 1;
   left: 80%;
   top: 10%;
 }
-.b1 {
+.case2_1 {
   position: absolute;
   z-index: 1;
   left: 20%;
   top: 40%;
 }
-.b2 {
+.case2_2 {
   position: absolute;
   z-index: 1;
   left: 32%;
   top: 40%;
 }
-.b3 {
+.case2_3 {
   position: absolute;
   z-index: 1;
   left: 44%;
   top: 40%;
 }
-.b4 {
+.case2_4 {
   position: absolute;
   z-index: 1;
   left: 56%;
   top: 40%;
 }
-.b5 {
+.case2_5 {
   position: absolute;
   z-index: 1;
   left: 68%;
   top: 40%;
 }
-.b6 {
+.case2_6 {
   position: absolute;
   z-index: 1;
   left: 80%;
   top: 40%;
 }
-.c1 {
+.case3_1 {
   position: absolute;
   z-index: 1;
   left: 20%;
   top: 70%;
 }
-.c2 {
+.case3_2 {
   position: absolute;
   z-index: 1;
   left: 32%;
   top: 70%;
 }
-.c3 {
+.case3_3 {
   position: absolute;
   z-index: 1;
   left: 44%;
   top: 70%;
 }
-.c4 {
+.case3_4 {
   position: absolute;
   z-index: 1;
   left: 56%;
   top: 70%;
 }
-.c5 {
+.case3_5 {
   position: absolute;
   z-index: 1;
   left: 68%;
   top: 70%;
 }
-.c6 {
+.case3_6 {
   position: absolute;
   z-index: 1;
   left: 80%;
   top: 70%;
+}
+
+.Pdt {
+  background: url("../images/icoplante/pdt.png");
+}
+.Radis {
+  background: url("../images/icoplante/radididis.png");
+}
+
+.Carotte {
+  background: url("../images/icoplante/cacacarotte.png");
+}
+
+.Poireau {
+  background: url("../images/icoplante/poipoireaureau.png");
+}
+
+.Aubergine {
+  background: url("../images/icoplante/aubergigigine.png");
 }
 
 .boutonpopfree {
@@ -226,11 +245,11 @@ body {
 }
 
 .line {
-  fill:none;
+  fill: none;
   transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-  stroke:#ffffff;
-  stroke-width:5.5;
-  stroke-linecap:round;
+  stroke: #ffffff;
+  stroke-width: 5.5;
+  stroke-linecap: round;
 }
 
 .ham8 .top {
@@ -265,12 +284,6 @@ body {
   margin-left: 0%;
 }
 
-.ham8 {
-  display: inline-block;
-  vertical-align: top;
-  flex-direction: column;
-}
-
 .cachecache {
   margin-left: 2%;
   flex-direction: column;
@@ -291,7 +304,7 @@ body {
 }
 
 .generique {
-  background-color: #ffffff;
+  background-color: #212529;
   border-radius: 10px 10px 10px 10px;
   border: 2px solid #003300;
   width: 10%;
@@ -299,7 +312,10 @@ body {
   font-size: small;
   padding-left: 10px;
   padding-top: 10px;
+  color: #ffffff;
 }
+
+/* bouton lights */
 
 .container {
   -webkit-tap-highlight-color: transparent;
@@ -316,7 +332,6 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
-
 }
 .container:active {
   transform: scale(0.73);

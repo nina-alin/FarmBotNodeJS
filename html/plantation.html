@@ -16,21 +16,38 @@
   </head>
   <body>
     <div class="modal2">
-      <ul id="#plantsList" class="list-group">
+      <ul id="plantsList" class="list-group">
         <!-- Liste de plants chargée dynamiquement -->
       </ul>
     </div>
 
-    <div class="boutonpopfree">
-      <button
-        id="boutonpop"
-        style="width: 200px; height: 50px"
-        class="btn btn-success"
-        onclick="fermer()"
-      >
-        Plante moi !
-      </button>
-    </div>
+    <form name="choixPlante">
+      <div class="form-group choixplante">
+        <label for="choixPlante">Quelle plante souhaites-tu planter?</label>
+        <input
+          type="text"
+          class="form-control"
+          id="choixplante"
+          placeholder="Quelle plante souhaites-tu planter?"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >Attention ! Le Farmbot n'aime ni les fautes, ni les accents !
+        </small>
+      </div>
+
+      <div class="boutonpopfree">
+        <button
+          id="boutonpop"
+          type="submit"
+          style="width: 200px; height: 50px"
+          class="btn btn-success"
+          onclick="controle()"
+          onclick="fermer()"
+        >
+          Plante moi !
+        </button>
+      </div>
+    </form>
   </body>
 
   <script>
@@ -38,6 +55,5 @@
     function fermer() {
       window.close();
     }
-    
   </script>
 </html>

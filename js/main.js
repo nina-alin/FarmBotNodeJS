@@ -1,6 +1,22 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, ipcMain, ipcRenderer } = require("electron");
 const path = require("path");
+const getplante = require("./api").getplante;
+const getetatplantation = require("./api").getetatplantation;
+const getPlantations = require("./api").getPlantations;
+const light = require("./api").light;
+const getHumidity = require("./meteoapi").getHumidity;
+
+const lightoff = require("./api").lightoff;
+const createwindowreglage = require("./childwindow").createwindowreglage;
+const createwindowconsommation = require("./childwindow")
+  .createwindowconsommation;
+  const createwindowmeteo= require("./childwindow")
+  .createwindowmeteo;
+const createpopupplantation = require("./childwindow").createpopupplantation;
+const createpopupplantationlock = require("./childwindow")
+  .createpopupplantationlock;
+const getetat = require("./api").getetat;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -14,7 +30,19 @@ function createWindow() {
     },
   });
   mainWindow.loadFile(path.join(__dirname, "../html/index.html"));
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools(); // POUR LE TRUC QUI FAIT CHIER
+
+  mainWindow.webContents.on("did-finish-load", (event) => {
+    console.log("Loaded main window");
+    // On charge toutes les données et on envoi le tout au renderer
+    getPlantations().then((json) => {
+      console.log("Json received ", json);
+      mainWindow.webContents.send("champLoaded", json);
+
+      //console.log("Json received "+json+" pour le champ "+champId);
+      //console.log(`Json received ${json} pour le champ ${champId}`);
+    });
+  });
 }
 
 // This method will be called when Electron has finished
@@ -37,40 +65,26 @@ app.on("window-all-closed", function () {
   if (process.platform !== "darwin") app.quit();
 });
 
-//-------------------------------------------------------------------------------------------------------------------
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
-
-const getplante = require("./api").getplante;
-const getetatplantation = require("./api").getetatplantation;
-const createwindowreglage = require("./childwindow").createwindowreglage;
-const createwindowconsommation = require("./childwindow")
-  .createwindowconsommation;
-const createpopupplantation = require("./childwindow").createpopupplantation;
-const createpopupplantationlock = require("./childwindow")
-  .createpopupplantationlock;
-const getetat = require("./api").getetat;
 //------------------------------------------------------------------  PLANTATION  --------------------------------------------------------------
+
 ipcMain.on("etatplantation", (event, id) => {
-  getetat(id).then((json) => {
-    event.sender.send("etatplantation", etatplantation);
+  getetat(id).then((data) => {
+    //console.log("Data received", data);
+    //On recupere l'identifiant de la plantation
+    // Vérifier que size == 1
+    let status = data[0]; // On récupère le premier element car il ne doit y en avoir qu'un seul
+    plante = status.plante;
+    idplantation = status.id;
+    console.log("id plantation = " + idplantation);
+    console.log("etat case : ", status);
+    if (status.plante !== null) {
+      createpopupplantationlock(mainWindow, id, idplantation);
+      // let win = createpopupplantation(mainWindow, id);
+    } else {
+      let win = createpopupplantation(mainWindow, id, idplantation);
+      win.on("closed", () => {});
+    }
   });
-});
-
-ipcMain.on("popupplantation", (event, id) => {
-  let win = createpopupplantation();
-  win.on("closed", () => {
-    console.log("popup closed");
-  });
-});
-
-ipcMain.on("popupplantationlock", (event, id) => {
-  createpopupplantationlock(mainWindow);
-  /*
-  win.on("closed", () => {
-    console.log("popup closed");
-  });*/
 });
 
 //-------------------------------------------------MENU ----------------------------------------------------
@@ -85,3 +99,18 @@ ipcMain.on("menuconsommation", (event, id) => {
   console.log("consoclick");
   createwindowconsommation(mainWindow);
 });
+
+ipcMain.on("menumeteo", (event, id) => {
+  console.log("meteoclick");
+  createwindowmeteo(mainWindow);
+});
+
+ipcMain.on("lightToggle", (event) => {
+  light();
+});
+
+ipcMain.on("lightToggleOff", (event) => {
+  lightoff();
+});
+
+// Je dois gérer la première update en api ... Voir childrenderer.js en 70

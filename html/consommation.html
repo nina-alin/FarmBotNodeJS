@@ -1,32 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="fr">
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../css/styleconsommation.css" rel="stylesheet" />
 
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/styleconsommation.css" rel="stylesheet">
-
-<head>
-<title>Consommation</title>
-<button type="button" id="btn-close" class="btn-close btn-close-white" aria-label="Close" onclick="fermer()"></button>
-
-</head>
-<body>
+  <head>
+    <title>Consommation</title>
+    <button
+      type="button"
+      id="btn-close"
+      class="btn-close btn-close-white"
+      aria-label="Close"
+      onclick="fermer()"
+    ></button>
+  </head>
+  <body>
+    <br />
+    <br />
     <div class="container">
-        <img src="../images/electricite.jpg" alt="electricite" class="image">
-        <div class="overlay">
-          <div class="text">Consommation d'électricité : 50 Joules</div>
-        </div>
+      <img src="../images/electricite.jpg" alt="electricite" class="image" />
+      <div class="overlay">
+        <div class="text">Consommation d'électricité : 50 Joules</div>
       </div>
-      <div class="container">
-        <img src="../images/eau.jpg" alt="eau" class="image">
-        <div class="overlay">
-          <div class="text">Consommation d'eau : 50 Litres</div>
-        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="container">
+      <img src="../images/eau.jpg" alt="eau" class="image" />
+      <div class="overlay">
+        <div class="text">Consommation d'eau : 50 Litres</div>
       </div>
-</body>
+    </div>
+  </body>
 
-<script> 
-    function fermer() {window.close();}
-</script>
-
+  <script>
+    function fermer() {
+      window.close();
+    }
+  </script>
 </html>

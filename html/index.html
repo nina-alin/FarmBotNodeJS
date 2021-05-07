@@ -1,16 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
 
+    <title>Farming Simulator</title>
   </head>
-  <body>    
-
+  <script>
+    if (container.classList.contains('active')){
+      document.getElementById("container").id = "light"; 
+    }
+    else {
+      (console.log('not active'));
+      document.getElementById("container").id = "lightOff"; 
+    }
+  </script>
+  <body>
     <!-- A faire 
     
     récupérer  données de la bdd 
@@ -18,89 +27,140 @@
     -->
 
     <!-- ***************************** MENU *******************************************-->
-    
-    <svg id="hamburger" class="ham hamRotate ham8" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+
+    <svg
+      id="hamburger"
+      class="ham hamRotate ham8"
+      viewBox="0 0 100 100"
+      width="80"
+      onclick="this.classList.toggle('active')"
+    >
       <path
-            class="line top"
-            d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20" />
-      <path
-            class="line middle"
-            d="m 30,50 h 40" />
+        class="line top"
+        d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"
+      />
+      <path class="line middle" d="m 30,50 h 40" />
 
       <path
-            class="line bottom"
-            d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20" />
+        class="line bottom"
+        d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"
+      />
     </svg>
-    
-  <div class="menu">
-    <div class="boutonmenu">
-      <button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark">Champ</button>,
-      <button id="menureglage" style="width: 100%; height: 50px" type="button" class="btn btn-dark menureglage">Réglages</button>,
-      <button id="menuconsommation" style="width: 100%; height: 50px" type="button" class="btn btn-dark menuconsommation">Consommation</button>,
-      <button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark">Simulation</button>,
-      <button id="menuchamp" style="width: 100%; height: 50px" type="button" class="btn btn-dark">?</button>,
-      <div class="container" onclick="this.classList.toggle('active')">
-        <div class="fill fill1">
-          <div class="circle circle1"></div>
+
+    <div class="menu">
+      <div class="boutonmenu">
+        <button
+          id="menuchamp"
+          style="width: 100%; height: 50px"
+          type="button"
+          class="btn btn-dark"
+        >
+          Champ</button
+        >,<button
+          id="menureglage"
+          style="width: 100%; height: 50px"
+          type="button"
+          class="btn btn-dark menureglage"
+        >
+          Réglages</button
+        >,<button
+          id="menuconsommation"
+          style="width: 100%; height: 50px"
+          type="button"
+          class="btn btn-dark menuconsommation"
+        >
+          Consommation</button
+        >,<button
+          id="menuchamp"
+          style="width: 100%; height: 50px"
+          type="button"
+          class="btn btn-dark"
+        >
+          Simulation</button
+        >,
+        <button
+          id="menumeteo"
+          style="width: 100%; height: 50px"
+          type="button"
+          class="btn btn-dark menumeteo"
+        >
+          Météo</button
+        >,
+        <div style="white-space: nowrap">
+          <button
+            id="light"
+            style="width: 48%; height: 50px"
+            type="button"
+            class="btn btn-dark"
+          >
+            Light On</button
+          >,
+          <button
+            id="lightOff"
+            style="width: 48%; height: 50px"
+            position="left : 50%"
+            type="button"
+            class="btn btn-dark"
+          >
+            Light Off
+          </button>
         </div>
-        <div class="drop">
-          <div class="fill fill2">
-            <div class="circle circle2"></div>
+        <div class="container" onclick="this.classList.toggle('active')" id="light">
+          <div class="fill fill1">
+            <div class="circle circle1" ></div>
+          </div>
+          <div class="drop">
+            <div class="fill fill2">
+              <div class="circle circle2" id="lightOff"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="cachecache">
-    <img src="../images/jeanRostand.jpg" id="lycee" alt="lycee" class="image">
+    <div class="cachecache">
+      <img
+        src="../images/jeanRostand.jpg"
+        id="lycee"
+        alt="lycee"
+        class="image"
+      />
 
-    <div class="generique">
-      <p>Gabriel Toursel<br />Nina Alin<br />Alexis Coupas<br />Thibault Douchin</p>
-      <p>Nous remercions nos professeurs</p>
-      <p>Mr Serge Cuypers<br />Mr Christian Robe<br />Mr Lucas Harsze<br />Mr Laurent Neel</p>
+      <div class="generique">
+        <p>
+          Gabriel Toursel<br />Nina Alin<br />Alexis Coupas<br />Thibault
+          Douchin
+        </p>
+        <p>Nous remercions nos professeurs</p>
+        <p>
+          Mr Serge Cuypers<br />Mr Christian Robe<br />Mr Lucas Harsze<br />Mr
+          Laurent Neel
+        </p>
+      </div>
+
+      <img
+        src="../images/farmbot.png"
+        id="farmbot"
+        alt="farmbot"
+        class="image"
+      />
     </div>
-
-    <img src="../images/farmbot.png" id="farmbot" alt="farmbot" class="image">
-
-  </div>
-</nav>
-
 
     <!-- *************************** BOUTONS ******************************************-->
 
-    <div class="casechamp">
-        <div class="a1"><button id="11" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="a2"><button id="12" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="a3"><button id="13" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="a4"><button id="14" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="a5"><button id="15" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="a6"><button id="16" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="b1"><button id="21" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="b2"><button id="22" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="b3"><button id="23" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="b4"><button id="24" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="b5"><button id="25" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="b6"><button id="26" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="c1"><button id="31" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="c2"><button id="32" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="c3"><button id="33" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="c4"><button id="34" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="c5"><button id="35" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-        <div class="c6"><button id="36" style="width: 150px; height: 150px"  class="btnPlantation btn btn-outline-light"> </button> </div>
-    </div>
+    <div id="casePlantation"></div>
 
     <!-- ******************************* a1 ********************************************-->
 
-     <!--                
+    <!--                
   <div id=a1> 
   -->
-                                <!-- The Modal -->
-                                <!--
+    <!-- The Modal -->
+    <!--
     <div id="myModala1free" class="modal">
 
                             <!-- Modal content FREE -->
-<!--
+    <!--
       <div class="modal-content">
 
         <span id="closea1" class="close" >&times;</span>
@@ -112,7 +172,7 @@
           <div class="modal-content2">
             <p>
               <ul  id="#plantsList" class="list-group"><!-- Liste de plants chargée dynamiquement -->
-                <!--
+    <!--
             </ul>
           </p>
           </div>
@@ -123,7 +183,7 @@
     <div id="myModala1lock" class="modal">
 
                             <!-- Modal content LOCK -->
-<!--
+    <!--
       <div class="modal-content">
 
         <span id="closea1lock" class="close" >&times;</span>
@@ -142,7 +202,7 @@
       </div>
     </div>
       <!--*********************************** JAVA A1**************************************-->
-      <!--
+    <!--
       <script>
 
         var etat_a1 =0;
@@ -251,11 +311,18 @@
         </script>
       </div>
     -->
-
   </body>
-  
-  <script>
-    require("../js/renderer.js")
-  </script>
 
+  <script>
+    require("../js/renderer.js");
+  </script>
 </html>
+<script>
+  if (container.classList.contains('active')){
+    document.getElementById("container").id = "light"; 
+  }
+  else {
+    (console.log('not active'));
+    document.getElementById("container").id = "lightOff"; 
+  }
+</script>
