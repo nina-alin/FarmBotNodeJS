@@ -8,7 +8,7 @@ const options = {
 	"port": null,
 	"path": "/weather/latest/by-lat-lng?lat=50.695577&lng=3.196580",
 	"headers": {
-		"x-api-key": "erGTmNgCA81tiCuJWUEn03q6vBdw5whN92fUyPVf",
+		"x-api-key": "",
 		"Content-type": "application/json"
 	}
 };
